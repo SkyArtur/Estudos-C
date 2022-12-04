@@ -17,7 +17,7 @@ typedef struct Row ROW;
 ROW* create_row();
 bool empty_row(ROW* rw);
 int size_row(ROW* rw);
-int start_row_item(ROW* rw);
+int start_item_row(ROW* rw);
 int remove_item_row(ROW* rw);
 
 void free_row_alloc(ROW* rw);

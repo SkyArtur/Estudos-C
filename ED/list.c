@@ -11,13 +11,24 @@ bool empty_list(LIST* li)
     return (li->start == NULL) ? true : false;
 }
 
+LIST* create_list()
+{
+    LIST* list = (LIST*)malloc(sizeof(LIST));
+    if (list != NULL)
+    {
+        list->start = NULL;
+        list->size = 0;
+    }
+    return list;
+}
+
 int size_list(LIST* li)
 {
     assert(li != NULL);
     return li->size;
 }
 
-int get_list_item(LIST* li, int pos)
+int get_item_list(LIST* li, int pos)
 {
     assert(li != NULL);
     assert(pos >= 0 && pos <= size_list(li));
@@ -29,7 +40,7 @@ int get_list_item(LIST* li, int pos)
     return aux->info;
 }
 
-int remove_list_item(LIST* li, int pos)
+int remove_item_list(LIST* li, int pos)
 {
     assert(li != NULL);
     assert(pos >= 0 && pos <= size_list(li));
@@ -54,18 +65,7 @@ int remove_list_item(LIST* li, int pos)
     return element;
 }
 
-LIST* create_list()
-{
-    LIST* list = (LIST*)malloc(sizeof(LIST));
-    if (list != NULL)
-    {
-        list->start = NULL;
-        list->size = 0;
-    }
-    return list;
-}
-
-void insert_list(LIST* li , int pos, int item)
+void insert_item_list(LIST* li , int pos, int item)
 {
     assert(li != NULL);
     assert(pos >= 0 && pos <= size_list(li));
@@ -106,7 +106,7 @@ void free_list_alloc(LIST* li)
 {
     do
     {
-        remove_list_item(li, 0);
+        remove_item_list(li, 0);
     } while (empty_list(li) == false);
     free(li);
 }

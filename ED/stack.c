@@ -36,7 +36,7 @@ int size_stack(STACK* sk)
     return sk->size;
 }
 
-int remove_stack(STACK* sk)
+int remove_item_stack(STACK* sk)
 {
     assert(sk != NULL);
     assert(sk->top != NULL);
@@ -47,7 +47,7 @@ int remove_stack(STACK* sk)
     return element;
 }
 
-void insert_stack(STACK* sk, int item)
+void insert_item_stack(STACK* sk, int item)
 {
     assert(sk != NULL);
     NODESTACK* new_node = (NODESTACK*)malloc(sizeof(NODESTACK));
@@ -65,7 +65,7 @@ void free_stack_alloc(STACK* sk)
     assert(sk != NULL);
     while (sk != NULL)
     {
-        remove_stack(sk);
+        remove_item_stack(sk);
     }
     free(sk);
 }

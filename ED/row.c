@@ -28,7 +28,7 @@ int size_row(ROW* rw)
     return rw->size;
 }
 
-int start_row_item(ROW* rw)
+int start_item_row(ROW* rw)
 {
     assert(rw != NULL);
     assert(rw->start != NULL);

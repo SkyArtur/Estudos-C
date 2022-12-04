@@ -23,21 +23,21 @@ void test_inserir_na_lista(LIST* li, int qtd)
 {
     for (int i = 0; i < qtd; i++)
     {
-        insert_list(li, i, (3 + i) * qtd);
+        insert_item_list(li, i, (3 + i) * qtd);
     }
 }
 
 void test_obter_um_item_da_lista(LIST* li, int pos)
 {
     printf("\nObtendo o item no indice %d da lista: ", pos);
-    printf("%d", get_list_item(li, pos));
+    printf("%d", get_item_list(li, pos));
     view_list(li);
 }
 
 void test_remover_item_da_lista(LIST* li, int pos)
 {
     printf("\nRemovendo o item no indice %d da lista: ", pos);
-    printf("%d", remove_list_item(li, pos));
+    printf("%d", remove_item_list(li, pos));
     view_list(li);
 }
 void test_desalocando_lista_da_memoria(LIST* li)
@@ -108,7 +108,7 @@ void test_inserir_na_pilha(STACK* sk, int qtd)
 {
     for (int i = 0; i < qtd; i++)
     {
-        insert_stack(sk, (i + 1) * qtd);
+        insert_item_stack(sk, (i + 1) * qtd);
     }
 }
 
@@ -125,7 +125,7 @@ void test_condicao_da_pilha(STACK* sk)
 
 void test_remover_item_da_pilha(STACK* sk)
 {
-    printf("\nRemovendo um item da lista: %d", remove_stack(sk));
+    printf("\nRemovendo um item da lista: %d", remove_item_stack(sk));
 }
 
 void test_funcionalidades_da_pilha()
