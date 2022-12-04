@@ -40,10 +40,6 @@ void test_remover_item_da_lista(LIST *li, int pos)
     printf("%d", remove_item_list(li, pos));
     view_list(li);
 }
-void test_desalocando_lista_da_memoria(LIST *li)
-{
-    free_list_alloc(li);
-}
 
 void test_funcionalidades_da_lista()
 {
@@ -58,7 +54,7 @@ void test_funcionalidades_da_lista()
     test_tamanho_da_lista(li);
     test_remover_item_da_lista(li, 3);
     test_tamanho_da_lista(li);
-    test_desalocando_lista_da_memoria(li);
+    free_list_alloc(li);
     printf("\n\n");
 }
 /*
@@ -71,6 +67,7 @@ void test_inserir_na_fila(ROW *rw, int qtd)
         insert_item_row(rw, (i + 1) * qtd);
     }
 }
+
 void test_condicao_da_fila(ROW *rw)
 {
     view_row(rw);
@@ -98,7 +95,8 @@ void test_funcionalidades_da_fila()
     test_tamanho_da_fila(rw);
     test_remover_item_da_fila(rw);
     test_tamanho_da_fila(rw);
-    printf("\n");
+    free_row_alloc(rw);
+    printf("\n\n");
 }
 /*
     Testes das funcionalidades da Pilha.
@@ -139,4 +137,15 @@ void test_funcionalidades_da_pilha()
     test_remover_item_da_pilha(sk);
     test_condicao_da_pilha(sk);
     test_tamanho_da_pilha(sk);
+    free_stack_alloc(sk);
+    printf("\n\n");
+}
+/*
+    Funcao teste.
+*/
+void test_estruturas()
+{
+    test_funcionalidades_da_lista();
+    test_funcionalidades_da_fila();
+    test_funcionalidades_da_pilha();
 }

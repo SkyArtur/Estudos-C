@@ -62,7 +62,7 @@ void insert_item_stack(STACK *sk, int item)
 void free_stack_alloc(STACK *sk)
 {
     assert(sk != NULL);
-    while (sk != NULL)
+    while (sk->top != NULL)
     {
         remove_item_stack(sk);
     }

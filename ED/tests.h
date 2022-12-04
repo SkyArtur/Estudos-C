@@ -4,5 +4,6 @@
 void test_funcionalidades_da_lista();
 void test_funcionalidades_da_fila();
 void test_funcionalidades_da_pilha();
+void test_estruturas();
 
 #endif
