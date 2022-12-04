@@ -4,16 +4,15 @@
 #include <assert.h>
 #include "list.h"
 
-
-bool empty_list(LIST* li)
+bool empty_list(LIST *li)
 {
     assert(li != NULL);
     return (li->start == NULL) ? true : false;
 }
 
-LIST* create_list()
+LIST *create_list()
 {
-    LIST* list = (LIST*)malloc(sizeof(LIST));
+    LIST *list = (LIST *)malloc(sizeof(LIST));
     if (list != NULL)
     {
         list->start = NULL;
@@ -22,17 +21,17 @@ LIST* create_list()
     return list;
 }
 
-int size_list(LIST* li)
+int size_list(LIST *li)
 {
     assert(li != NULL);
     return li->size;
 }
 
-int get_item_list(LIST* li, int pos)
+int get_item_list(LIST *li, int pos)
 {
     assert(li != NULL);
     assert(pos >= 0 && pos <= size_list(li));
-    NODELIST* aux = li->start;
+    NODELIST *aux = li->start;
     for (int i = 0; i < pos; i++)
     {
         aux = aux->next;
@@ -40,12 +39,12 @@ int get_item_list(LIST* li, int pos)
     return aux->info;
 }
 
-int remove_item_list(LIST* li, int pos)
+int remove_item_list(LIST *li, int pos)
 {
     assert(li != NULL);
     assert(pos >= 0 && pos <= size_list(li));
-    NODELIST* previous = NULL;
-    NODELIST* aux = li->start;
+    NODELIST *previous = NULL;
+    NODELIST *aux = li->start;
     for (int i = 0; i < pos; i++)
     {
         previous = aux;
@@ -65,11 +64,11 @@ int remove_item_list(LIST* li, int pos)
     return element;
 }
 
-void insert_item_list(LIST* li , int pos, int item)
+void insert_item_list(LIST *li, int pos, int item)
 {
     assert(li != NULL);
     assert(pos >= 0 && pos <= size_list(li));
-    NODELIST* new_node = (NODELIST*) malloc(sizeof(NODELIST));
+    NODELIST *new_node = (NODELIST *)malloc(sizeof(NODELIST));
     new_node->info = item;
     if (pos == 0)
     {
@@ -78,7 +77,7 @@ void insert_item_list(LIST* li , int pos, int item)
     }
     else
     {
-        NODELIST* aux = li->start;
+        NODELIST *aux = li->start;
         for (int i = 0; i < pos - 1; i++)
         {
             aux = aux->next;
@@ -89,20 +88,20 @@ void insert_item_list(LIST* li , int pos, int item)
     li->size++;
 }
 
-void view_list(LIST* li)
+void view_list(LIST *li)
 {
     assert(li != NULL);
     printf("\n[");
-    NODELIST* aux = li->start;
+    NODELIST *aux = li->start;
     for (int i = 0; i < size_list(li); i++)
     {
         (i != size_list(li) - 1) ? printf("%d, ", aux->info) : printf("%d", aux->info);
-        aux  = aux->next;
+        aux = aux->next;
     }
     printf("]");
 }
 
-void free_list_alloc(LIST* li)
+void free_list_alloc(LIST *li)
 {
     do
     {

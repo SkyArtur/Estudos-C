@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include "ED/tests.h"
 
-
 int main()
 {
     test_funcionalidades_da_lista();
